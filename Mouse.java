@@ -31,7 +31,7 @@ public class Mouse {
         //take row and colum form the user to be a strating point
         startingCell = new Cell (row, col);
         Cell current = startingCell;
-        maze[current.getX()][current.getY()] = ' ';
+        maze[current.getRow()][current.getCol()] = ' ';
         
         
         Cell retrieved = new Cell(0,0);  
@@ -49,7 +49,7 @@ public class Mouse {
                
                 current = retrieved;
                 solution.push(current);
-                maze[current.getX()][current.getY()] = ' ';
+                maze[current.getRow()][current.getCol()] = ' ';
                 isSolved = checkFinished(current);
                 continue;
             }
@@ -60,7 +60,7 @@ public class Mouse {
           
                 current = retrieved;
                 solution.push(current);
-                maze[current.getX()][current.getY()] = ' ';
+                maze[current.getRow()][current.getCol()] = ' ';
                 isSolved = checkFinished(current);
                 continue;
             }
@@ -70,7 +70,7 @@ public class Mouse {
             {
                 current = retrieved;
                 solution.push(current);
-                maze[current.getX()][current.getY()] = ' ';
+                maze[current.getRow()][current.getCol()] = ' ';
                 isSolved = checkFinished(current);
                 continue;
             }
@@ -78,16 +78,16 @@ public class Mouse {
             retrieved = West(current);
             if(!checkSameSpot(retrieved, current))
             {
-               //maze[current.getX()][current.getY()] = 'X';
+               //maze[current.getRow()][current.getY()] = 'X';
                 current = retrieved;
                 solution.push(current);
-                maze[current.getX()][current.getY()] = ' ';
+                maze[current.getRow()][current.getCol()] = ' ';
                 isSolved = checkFinished(current);
                 
                 continue;
             }
             // if meet the dead end,  can't turn East, West, North, South, or go back, give the current cell is 2
-            maze[current.getX()][current.getY()] = '2';
+            maze[current.getRow()][current.getCol()] = '2';
             solution.pop();
             current = solution.peek();
             isSolved = checkFinished(current);
@@ -101,11 +101,11 @@ public class Mouse {
     
     public Cell North(Cell c)
     {
-        if ((c.getX()-1) ==-1)
+        if ((c.getRow()-1) ==-1)
         {return c;}
         else
         {
-            Cell spot = new Cell( c.getX()-1, c.getY());
+            Cell spot = new Cell( c.getRow()-1, c.getCol());
             if ( checkSafe(spot))
             {
                 return spot;
@@ -123,7 +123,7 @@ public class Mouse {
         {return c;}
         else
         {
-            Cell spot = new Cell( c.getX(), c.getY()+1);
+            Cell spot = new Cell( c.getRow(), c.getCol()+1);
             if ( checkSafe(spot))
             {
                 return spot;
@@ -137,11 +137,11 @@ public class Mouse {
     
      public Cell South(Cell c)
     {
-         if ((c.getX() + 1) == maze.length )
+         if ((c.getRow() + 1) == maze.length )
         {return c;}
         else
         {
-            Cell spot = new Cell( c.getX()+1, c.getY());
+            Cell spot = new Cell( c.getRow()+1, c.getCol());
             if ( checkSafe(spot))
             {
                 return spot;
@@ -159,7 +159,7 @@ public class Mouse {
         {return c;}
         else
         {
-            Cell spot = new Cell( c.getX(), c.getY()-1);
+            Cell spot = new Cell( c.getRow(), c.getCol()-1);
             if ( checkSafe(spot))
             {
                 return spot;
@@ -175,7 +175,7 @@ public class Mouse {
     //isPossible(...) is the main check - looks to see if 'nodes' have been visited or if there is a wall 
     public boolean checkSafe(Cell c)
     {
-        if(maze[c.getX()][c.getY()] != 'X' && maze[c.getX()][c.getY()] == '0')
+        if(maze[c.getRow()][c.getCol()] != 'X' && maze[c.getRow()][c.getCol()] == '0')
         {
             return true;
         }
@@ -187,7 +187,7 @@ public class Mouse {
     //check if the current cell and the next Cell are the same
     public boolean checkSameSpot(Cell a, Cell b)
     {
-        if((a.getX() == b.getX()) && (a.getY() == b.getY()))
+        if((a.getX() == b.getRow()) && (a.getCol() == b.getCol()))
         {
             
             return true;
@@ -209,7 +209,7 @@ public class Mouse {
         }
         else
         {
-            if (c.getY() == 0 || c.getY() == (maze.length-1) || c.getX() == 0 || c.getX() ==( maze.length-1) )
+            if (c.getY() == 0 || c.getCol() == (maze.length-1) || c.getRow() == 0 || c.getRow() ==( maze.length-1) )
             {
                 printSoln();
                 return true;
