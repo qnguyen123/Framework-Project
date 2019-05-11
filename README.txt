@@ -1,3 +1,9 @@
+Instruction
+Install BlueJ from https://www.bluej.org/
+
+
+
+
 # Maze
 ------------------------------------------------------------------------
 This is the project README file. Here, you should describe your project.
