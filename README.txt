@@ -8,13 +8,8 @@ Compile all then run!
 
 # Maze
 ------------------------------------------------------------------------
-This is the project README file. Here, you should describe your project.
-Tell the reader (someone who does not know anything about this project)
-all he/she needs to know. The comments should usually include at least:
 ------------------------------------------------------------------------
-
 Purpose:
-
 The purpose of this project is for you to demonstrate your understanding and use of a variety of data structures in a program with a complex algorithm. This is a capstone application in which you are expected to apply most of the various techniques learned in this course.
 Specifications:
 The objective of this project is for you to develop and code an algorithm that will simulate a Mouse traversing a Maze. The program must display the final route through the Maze (see the example at the end of the specifications). No dead-ends or re-loops should be shown. The Maze is read in from a file chosen by the user. After loading the Maze, display it for the user to select the entry point. There may be multiple entry points, not all of which result in reaching an exit.
