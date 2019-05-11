@@ -1,5 +1,8 @@
 Instruction
 Install BlueJ from https://www.bluej.org/
+Open BlueJ
+Go to Project-> New Project -> Enter Your Name -> click OK.
+Edit-> Add class from file -> Then Open 
 
 
 
